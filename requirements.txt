@@ -1,0 +1,4 @@
+flask
+numpy
+librosa
+tflite_runtime
