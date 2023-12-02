@@ -2,3 +2,5 @@ flask
 numpy
 librosa
 tflite_runtime
+scikit-learn
+matplotlib
