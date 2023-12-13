@@ -9,19 +9,22 @@ def predict():
     # Get the label from the request
     label = request.form.get('label')
 
+    # check if file is an audio file 
+    # TODO (low priority)
+
     # preprocess the audio file
     # TODO
     preprocessed_audio_file = None
 
     # predict the audio file
     # TODO
-    prediction = None
+    prediction = "alif"
 
-    # check if the prediction is correct
-    if prediction == label:
-        return jsonify({'message': 'Correct prediction'})
-    else:
-        return jsonify({'message': 'Incorrect prediction'})
+    file_name = audio_file.filename
+    print('The file name is: {}'.format(file_name))
+
+    # return the prediction
+    return prediction
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
