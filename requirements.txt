@@ -4,3 +4,4 @@ librosa
 tflite_runtime
 scikit-learn
 matplotlib
+gunicorn
