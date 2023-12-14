@@ -3,4 +3,4 @@ TODO
 - [ ] Authentication
 - [ ] Preprocessing
 - [ ] Prediction
-- [ ] Dockerize
+- [x] Dockerize
