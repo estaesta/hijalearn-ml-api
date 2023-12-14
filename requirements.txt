@@ -2,7 +2,6 @@ flask
 numpy
 librosa
 tflite_runtime
-scikit-learn
 matplotlib
 gunicorn
 tensorflow_io
