@@ -9,10 +9,15 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    # Authenticate the request
+    # TODO (low priority)
+
     # Get the audio file from the request
     audio_file = request.files['file']
     # Get the label from the request
     label = request.form.get('label')
+    # Get the model from the request (based on the moduleId)
+    model = request.form.get('model')
 
     # check if file is an audio file 
     # TODO (low priority)
