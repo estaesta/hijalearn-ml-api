@@ -1,8 +1,14 @@
 from flask import Flask, request, jsonify
 import os
 
+from utils.preprocess import process_audio_to_spectrogram
+
 app = Flask(__name__)
 
+model_list = [
+    './model/model_full_inception_90.tflite',
+    './model/model_polos_inception_98.tflite'
+]
 
 @app.route("/")
 def index():
@@ -25,10 +31,9 @@ def predict():
     # TODO (low priority)
 
     # preprocess the audio file
-    # TODO
     # di file preprocess sudah kutambahin
     # ku edit dikit dari kode anak ml biar gk usah import tensorflow
-    preprocessed_audio_file = None
+    preprocessed_audio_file = process_audio_to_spectrogram(audio_file)
 
     # predict the audio file (use tflite model)
     # TODO

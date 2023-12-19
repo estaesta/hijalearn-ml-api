@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 import tensorflow_io as tfio
 
 
-def process_audio_to_spectrogram(file_path: str, target_length=18000):
-    if not file_path.endswith(".wav"):
-        raise ValueError("File path must be a .wav file")
-
+def process_audio_to_spectrogram(file_path, target_length=18000):
+    # if not file_path.endswith(".wav"):
+    #     raise ValueError("File path must be a .wav file")
+    #
     wav, sr = librosa.load(file_path, sr=None)
 
     # Set a custom threshold for trimming (adjust as needed)
