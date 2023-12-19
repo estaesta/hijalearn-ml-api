@@ -1,11 +1,23 @@
 import tflite_runtime.interpreter as tflite
 import numpy as np
+import csv
+
 # import os
 
 
+def load_labels_from_csv(csv_file_path):
+    labels = []
+
+    with open(csv_file_path, "r") as csv_file:
+        csv_reader = csv.reader(csv_file)
+        next(csv_reader)  # Skip the header row if present
+
+        labels.extend(row[0] for row in csv_reader)
+    return labels
+
+
 def load_model(model_path):
-    model = tflite.Interpreter(model_path=model_path)
-    return model
+    return tflite.Interpreter(model_path=model_path)
 
 
 def predict(model, spectrogram):
@@ -20,3 +32,16 @@ def predict(model, spectrogram):
     model.invoke()
     result = model.get_tensor(output_details[0]["index"])
     return result
+
+
+def inference(spectrogram, model_path, label_path):
+    loaded_model = load_model(model_path)
+    loaded_labels = load_labels_from_csv(label_path)
+
+    result = predict(loaded_model, spectrogram)
+
+    top_predict_index = np.argmax(result, axis=1)
+    label_name = loaded_labels[int(top_predict_index)]
+    probability = result[0,top_predict_index]
+
+    return label_name, probability
