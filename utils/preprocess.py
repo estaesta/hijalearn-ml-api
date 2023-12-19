@@ -5,14 +5,19 @@ import matplotlib.pyplot as plt
 import tensorflow_io as tfio
 
 
-def process_audio_to_spectrogram(file_path: str, target_length=12000):
+def process_audio_to_spectrogram(file_path: str, target_length=18000):
     if not file_path.endswith(".wav"):
         raise ValueError("File path must be a .wav file")
 
     wav, sr = librosa.load(file_path, sr=None)
+
+    # Set a custom threshold for trimming (adjust as needed)
+    custom_top_db = 20
+    # Trim leading and trailing silence with a custom threshold
+    wav, _ = librosa.effects.trim(wav, top_db=custom_top_db)
+
     # wav = tf.convert_to_tensor(wav, dtype=tf.float32)
     # sr = tf.convert_to_tensor(sr, dtype=tf.int32)
-    # sample_rate = tf.cast(sr, dtype=tf.int64)
     wav = tfio.audio.resample(wav, rate_in=sr, rate_out=16000)
     # wav = librosa.resample(wav, orig_sr=sr, target_sr=16000)
 
@@ -32,7 +37,7 @@ def process_audio_to_spectrogram(file_path: str, target_length=12000):
     n_fft = 1024
 
     # Step or stride between windows. If the step is smaller than the window length, the windows will overlap
-    hop_length = 160
+    hop_length = 320
     #         sr = float(sr)
     window_type = "hann"
     mel_bins = 128
