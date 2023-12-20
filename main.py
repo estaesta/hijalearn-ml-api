@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import os
 from utils.prediction import inference
 
-from utils.preprocess import process_audio_to_spectrogram
+from utils.preprocess import *
 
 app = Flask(__name__)
 

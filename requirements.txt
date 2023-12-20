@@ -4,5 +4,4 @@ librosa
 tflite_runtime
 matplotlib
 gunicorn
-tensorflow_io
 scikit-image
