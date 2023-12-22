@@ -12,8 +12,10 @@ TODO
 
 POST /predict
 ---
-body:
+body (form-data):
+
 file: wav file
+
 model: model name("1" for polos, "2" for fathah, "3" for kasrah, "4" for dammah)
 
 response:
