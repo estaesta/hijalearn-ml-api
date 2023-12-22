@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 model_list = [
     './model/model_full_inception_90.tflite',
-    './model/model_polos_inception_98.tflite',
-    './model/model_fathah_inception_93_2.tflite',
+    './model/model_polos_inception_96.tflite',
+    './model/model_fathah_inception_95.tflite',
     './model/model_kasrah_inception_86.tflite',
-    './model/model_dammah_inception_88.tflite'
+    './model/model_dammah_inception_83.tflite'
 ]
 
 label_csv_list = [
