@@ -7,8 +7,9 @@ TODO
 
 ## How to run
 1. Clone this repository
-2. Run `docker build -t <image-name> .`
-3. Run `docker run -p 5000:5000 <image-name>`
+2. Put the model in `models` folder
+3. Run `docker build -t <image-name> .`
+4. Run `docker run -p 5000:5000 <image-name>`
 
 POST /predict
 ---
