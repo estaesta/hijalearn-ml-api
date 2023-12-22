@@ -5,6 +5,9 @@ TODO
 - [x] Prediction using tflite runtime
 - [x] Dockerize
 
+## Model
+https://drive.google.com/drive/folders/14YmzV3eUagTSMGXVJ_qW6ETnQfW8sai1?usp=drive_link
+
 ## How to run
 1. Clone this repository
 2. Put the model in `models` folder
@@ -14,10 +17,8 @@ TODO
 POST /predict
 ---
 body (form-data):
-
-file: wav file
-
-model: model name("1" for polos, "2" for fathah, "3" for kasrah, "4" for dammah)
+- file: wav file
+- model: model name("1" for polos, "2" for fathah, "3" for kasrah, "4" for dammah)
 
 response:
 ```
